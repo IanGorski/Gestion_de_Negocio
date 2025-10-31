@@ -1,15 +1,12 @@
-import React from 'react';
+import './Table.css';
 
 const Table = ({ headers, data }) => {
   return (
-    <table className="min-w-full border-collapse border border-gray-200">
+    <table className="table">
       <thead>
         <tr>
           {headers.map((header, index) => (
-            <th
-              key={index}
-              className="border border-gray-200 px-4 py-2 bg-gray-100 text-left"
-            >
+            <th key={index} className="table-header">
               {header}
             </th>
           ))}
@@ -19,10 +16,7 @@ const Table = ({ headers, data }) => {
         {data.map((row, rowIndex) => (
           <tr key={rowIndex}>
             {row.map((cell, cellIndex) => (
-              <td
-                key={cellIndex}
-                className="border border-gray-200 px-4 py-2"
-              >
+              <td key={cellIndex} className="table-cell">
                 {cell}
               </td>
             ))}
