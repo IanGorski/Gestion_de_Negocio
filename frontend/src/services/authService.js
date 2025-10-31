@@ -1,43 +1,52 @@
-import api from './api';
+const mockUser = {
+    id: 1,
+    name: "Usuario Prueba",
+    email: "usuario@prueba.com",
+    token: "mock-token-12345",
+};
 
 export const authService = {
     login: async (credentials) => {
-        try {
-            const response = await api.post('/auth/login', credentials);
-            if (response.data.token) {
-                localStorage.setItem('token', response.data.token);
-            }
-            return response.data;
-        } catch (error) {
-            throw error;
-        }
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (credentials.email === "usuario@prueba.com" && credentials.password === "password") {
+                    localStorage.setItem("token", mockUser.token);
+                    resolve({ token: mockUser.token, user: mockUser });
+                } else {
+                    reject({ response: { data: { message: "Credenciales inválidas" } } });
+                }
+            }, 1000);
+        });
     },
 
     logout: async () => {
-        try {
-            await api.post('/auth/logout');
-            localStorage.removeItem('token');
-        } catch (error) {
-            console.error('Logout error:', error);
-        }
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                localStorage.removeItem("token");
+                resolve();
+            }, 500);
+        });
     },
 
     verifyToken: async () => {
-        try {
-            const response = await api.get('/auth/verify');
-            return response.data;
-        } catch (error) {
-            throw error;
-        }
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const token = localStorage.getItem("token");
+                if (token === mockUser.token) {
+                    resolve({ user: mockUser });
+                } else {
+                    reject({ response: { data: { message: "Token inválido" } } });
+                }
+            }, 500);
+        });
     },
 
     register: async (userData) => {
-        try {
-            const response = await api.post('/auth/register', userData);
-            return response.data;
-        } catch (error) {
-            throw error;
-        }
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve({ message: "Usuario registrado exitosamente", user: { ...userData, id: Date.now() } });
+            }, 1000);
+        });
     },
 };
 
