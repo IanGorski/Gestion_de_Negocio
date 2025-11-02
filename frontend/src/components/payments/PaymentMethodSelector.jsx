@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const PaymentMethodSelector = () => {
-    return (
-        <div>
-            {/* Payment Method Selector Component */}
-        </div>
-    );
+  return <div>{/* Payment Method Selector Component */}</div>;
 };
 
 export default PaymentMethodSelector;
