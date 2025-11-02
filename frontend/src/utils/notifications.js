@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 
 export const notify = {
-    success: (message) => {
+    success: (message, options = {}) => {
         toast.success(message, {
             position: 'top-right',
             autoClose: 3000,
@@ -9,10 +9,11 @@ export const notify = {
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
+            ...options,
         });
     },
     
-    error: (message) => {
+    error: (message, options = {}) => {
         toast.error(message, {
             position: 'top-right',
             autoClose: 4000,
@@ -20,10 +21,11 @@ export const notify = {
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
+            ...options,
         });
     },
     
-    warning: (message) => {
+    warning: (message, options = {}) => {
         toast.warning(message, {
             position: 'top-right',
             autoClose: 3500,
@@ -31,10 +33,11 @@ export const notify = {
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
+            ...options,
         });
     },
     
-    info: (message) => {
+    info: (message, options = {}) => {
         toast.info(message, {
             position: 'top-right',
             autoClose: 3000,
@@ -42,6 +45,7 @@ export const notify = {
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
+            ...options,
         });
     },
 };
