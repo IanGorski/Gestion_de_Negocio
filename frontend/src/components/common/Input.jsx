@@ -1,14 +1,10 @@
-import './Input.css';
+import "./Input.css";
 
-const Input = ({ label, type = 'text', className, ...props }) => {
+const Input = ({ label, type = "text", className, ...props }) => {
   return (
     <div className="input-container">
       {label && <label className="input-label">{label}</label>}
-      <input
-        type={type}
-        className={`input-field ${className}`}
-        {...props}
-      />
+      <input type={type} className={`input-field ${className}`} {...props} />
     </div>
   );
 };
