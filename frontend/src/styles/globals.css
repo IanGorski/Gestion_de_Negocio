@@ -39,47 +39,62 @@ code {
   background: #555;
 }
 
-/* CSS Variables */
 :root {
-  /* Colores principales */
-  --primary: #3b82f6;
-  --primary-dark: #2563eb;
-  --primary-light: #60a5fa;
+  /* PRIMARY - Azul corporativo profesional */
+  --primary: #0f3a7d;
+  --primary-dark: #0a2351;
+  --primary-light: #1e5aa8;
+  --primary-lighter: #5b8fc4;
+  --primary-lightest: #e8f0f8;
   
-  --secondary: #10b981;
-  --secondary-dark: #059669;
-  --secondary-light: #34d399;
+  /* SECONDARY - Cyan moderno */
+  --secondary: #06b6d4;
+  --secondary-dark: #0891b2;
+  --secondary-light: #22d3ee;
+  --secondary-lighter: #cffafe;
   
-  --accent: #f59e0b;
-  --danger: #ef4444;
+  /* Estados */
+  --danger: #dc2626;
   --warning: #f59e0b;
   --success: #10b981;
-  --info: #3b82f6;
+  --info: #0f3a7d;
   
-  /* Colores neutrales */
-  --gray-50: #f9fafb;
-  --gray-100: #f3f4f6;
-  --gray-200: #e5e7eb;
-  --gray-300: #d1d5db;
-  --gray-400: #9ca3af;
-  --gray-500: #6b7280;
-  --gray-600: #4b5563;
-  --gray-700: #374151;
-  --gray-800: #1f2937;
-  --gray-900: #111827;
+  /* Colores neutrales mejorados */
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
   
   /* Fondos */
   --bg-primary: #ffffff;
-  --bg-secondary: #f9fafb;
-  --bg-tertiary: #f3f4f6;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
   
   /* Textos */
-  --text-primary: #111827;
-  --text-secondary: #6b7280;
-  --text-tertiary: #9ca3af;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #94a3b8;
+  
+  /* Sombras profesionales */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.15);
+  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.2);
+  --shadow-2xl: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+  
+  /* Transiciones */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-base: 0.2s ease-in-out;
+  --transition-slow: 0.3s ease-in-out;
 }
 
-/* Utility classes */
+/* Clases Utiles */
 .container {
   width: 100%;
   max-width: 1280px;
@@ -98,7 +113,7 @@ code {
   padding: 1.5rem;
 }
 
-/* Animations */
+/* Animaciones */
 @keyframes fadeIn {
   from {
     opacity: 0;
