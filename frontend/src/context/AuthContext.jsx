@@ -2,6 +2,7 @@
 import React, { createContext, useState, useContext, useEffect, useCallback } from 'react';
 import authService from '../services/authService';
 import { notify } from '../utils/notifications';
+import { toast } from 'react-toastify';
 
 const AuthContext = createContext();
 
@@ -28,7 +29,10 @@ export const AuthProvider = ({ children }) => {
         } catch (err) {
             const message = err?.response?.data?.message || 'Error al iniciar sesión';
             setError(message);
-            notify.error(message);
+            // Limitar notificaciones repetitivas
+            if (!toast.isActive('error-toast')) {
+                notify.error(message, { toastId: 'error-toast' });
+            }
             return { ok: false, error: message };
         } finally {
             setLoading(false);
@@ -50,7 +54,10 @@ export const AuthProvider = ({ children }) => {
     // Verificar token al cargar la app
     useEffect(() => {
         const verify = async () => {
-            if (!token) return;
+            if (!token) {
+                setLoading(false); // Importante: terminar loading si no hay token
+                return;
+            }
             setLoading(true);
             try {
                 const data = await authService.verifyToken();
